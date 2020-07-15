@@ -15,11 +15,6 @@
   justify-content: center;
 }
 
-#app * {
-
-  width: 60%;
-}
-
 </style>
 
 <template>

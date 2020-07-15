@@ -1,9 +1,12 @@
 <template>
-  <form @submit="handleSubmit" class="form">
-    <k-input v-model="email" :label="'Email'"/>
-    <k-input v-model="password" type="password" :label="'Password'"/>
-    <kendo-button class="k-primary">Submit</kendo-button>
-  </form>
+  <div class="form-container">
+    <form @submit="handleSubmit" class="form">
+      <k-input v-model="email" :label="'Email'"/>
+      <k-input v-model="password" type="password" :label="'Password'"/>
+      <kendo-button class="k-primary">Submit</kendo-button>
+    </form>
+    <kendo-notification ref="popupNotification"/>
+  </div>
 </template>
 <script>
 export default {
@@ -27,7 +30,8 @@ export default {
           email: this.email,
           password: this.password
         }) 
-    }).then(res => res.json())
+      }).then(res => res.json())
+      this.$refs.popupNotification.kendoWidget().show(response.message)
     }
   }
   
@@ -35,6 +39,9 @@ export default {
 </script>
 <style>
   .form {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     border-radius: 4px;
     background: #FEFEFE;

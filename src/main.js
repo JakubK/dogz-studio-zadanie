@@ -7,9 +7,17 @@ import {
   Button,
   ButtonsInstaller
 } from '@progress/kendo-buttons-vue-wrapper'
+
+import {
+  Notification,
+  KendoPopupsInstaller } from '@progress/kendo-popups-vue-wrapper'
+
+Vue.use(KendoPopupsInstaller)
+
 import App from './App.vue'
 
 Vue.use(ButtonsInstaller)
+Vue.use(KendoPopupsInstaller)
 Vue.component('k-input', Input)
 Vue.component('k-button', Button)
 
